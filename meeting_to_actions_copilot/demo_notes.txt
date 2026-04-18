@@ -1,0 +1,13 @@
+Customer Support Sync
+
+Pain points:
+- Too many tickets are marked “urgent” without evidence
+- First response time is inconsistent on weekends
+
+Decision: “Urgent” requires either revenue impact or production outage.
+Decision: Weekend on-call will rotate weekly.
+
+Action: Ei Ei to update the ticket form to include an “urgent justification” field by 2026-04-21 (priority P1).
+Action: Chris to draft the on-call rotation schedule and share by Friday (priority P2).
+Action: Nina to create a canned response template for billing issues by 2026-04-20 (priority P3).
+Next step: review metrics again next Monday.
