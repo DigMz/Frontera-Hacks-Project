@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breather</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">B</div>
+        <div>
+          <h1>Breather</h1>
+          <p class="subtitle">Pause. Breathe. Then choose.</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#gate">Timer Gate</a>
+        <a href="#todo">To‑Do</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="card" id="gate">
+        <div class="cardHead">
+          <h2>Timer before social</h2>
+          <p class="muted">
+            Pick an app. Breather will run a short timer before opening it.
+            (AI guidance comes later.)
+          </p>
+        </div>
+
+        <div class="controls">
+          <label class="field">
+            <span>Breath time</span>
+            <select id="durationSelect">
+              <option value="5">5 seconds</option>
+              <option value="10" selected>10 seconds</option>
+              <option value="20">20 seconds</option>
+              <option value="30">30 seconds</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Custom link (optional)</span>
+            <input id="customUrl" type="url" placeholder="https://..." autocomplete="off" />
+          </label>
+        </div>
+
+        <div class="appGrid" aria-label="Social app links">
+          <button class="appButton" data-url="https://www.instagram.com/" type="button">
+            Instagram
+          </button>
+          <button class="appButton" data-url="https://www.tiktok.com/" type="button">
+            TikTok
+          </button>
+          <button class="appButton" data-url="https://www.youtube.com/" type="button">
+            YouTube
+          </button>
+          <button class="appButton" data-url="https://twitter.com/" type="button">
+            X / Twitter
+          </button>
+          <button class="appButton" data-url="https://www.reddit.com/" type="button">
+            Reddit
+          </button>
+          <button class="appButton" data-url="https://www.facebook.com/" type="button">
+            Facebook
+          </button>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="gateStatus" role="status" aria-live="polite" id="gateStatus">
+          Ready.
+        </div>
+      </section>
+
+      <section class="card" id="todo">
+        <div class="cardHead">
+          <h2>To‑Do list</h2>
+          <p class="muted">Stored locally in your browser.</p>
+        </div>
+
+        <form id="todoForm" class="todoForm">
+          <input
+            id="todoInput"
+            type="text"
+            placeholder="Add a task…"
+            maxlength="140"
+            autocomplete="off"
+            required
+          />
+          <button type="submit" class="primary">Add</button>
+        </form>
+
+        <div class="todoTools">
+          <button id="clearCompleted" type="button" class="ghost">Clear completed</button>
+          <button id="clearAll" type="button" class="ghost danger">Clear all</button>
+        </div>
+
+        <ul id="todoList" class="todoList" aria-label="To-do items"></ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span class="muted">Breather • v0 (AI model coming later)</span>
+    </footer>
+
+    <dialog id="gateModal" class="modal">
+      <div class="modalInner">
+        <div class="modalTop">
+          <h3>Breathing break</h3>
+          <button id="closeModal" class="icon" type="button" aria-label="Close">×</button>
+        </div>
+
+        <p class="muted" id="modalSubtitle">A short pause before you open the app.</p>
+
+        <div class="ringWrap" aria-hidden="true">
+          <div class="ring" id="ring"></div>
+        </div>
+
+        <div class="countdown" aria-label="Countdown" id="countdown">10</div>
+
+        <div class="modalActions">
+          <button id="cancelGate" type="button" class="ghost">Cancel</button>
+          <a id="openLink" class="primary disabled" href="#" target="_blank" rel="noreferrer">
+            Open app
+          </a>
+        </div>
+
+        <p class="hint muted">Tip: breathe in as the ring expands, out as it contracts.</p>
+      </div>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
